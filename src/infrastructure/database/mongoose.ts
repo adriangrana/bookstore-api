@@ -1,8 +1,9 @@
 import mongoose from 'mongoose';
+require('dotenv').config();
 
 export const connectDB = async () => {
   try {
-    await mongoose.connect('mongodb://localhost:27017/test');
+    await mongoose.connect(process.env.MONGO_URI || 'asdasd');
     console.log('MongoDB connected');
   } catch (error) {
     console.error(error);
