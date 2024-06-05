@@ -26,6 +26,7 @@ This project is a seed project to demonstrate the implementation of hexagonal ar
 - **Express**: Fast, unopinionated, minimalist web framework for Node.js.
 - **MongoDB**: NoSQL database for storing user data.
 - **Swagger**: API documentation and testing.
+- **Jest**: JavaScript library for creating, running, and structuring tests.
 
 ## Installation
 
@@ -62,12 +63,17 @@ This project is a seed project to demonstrate the implementation of hexagonal ar
 
 ## Usage
 
-1. **Start the server:**
+1. **Test the code:**
+
+    ```bash
+    npm run test
+
+2. **Start the server:**
 
     ```bash
     npm run start
 
-2. **Access the API documentation:**
+3. **Access the API documentation:**
 Open your browser and navigate to http://localhost:3000/api-docs to view the Swagger UI for API documentation and testing.
 
 ## API Documentation
@@ -79,6 +85,7 @@ src/
 ├── application/
 │   ├── services/
 │   │   └── userService.ts
+│   │   └── userService.test.ts
 ├── domain/
 │   ├── entities/
 │   │   └── user.ts
