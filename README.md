@@ -1,10 +1,9 @@
-# Hexagonal Architecture Project
+# Bookstore API
 
-Seed project for hexagonal architecture with Node.js and TypeScript.
+API for bookstore application.
 
 ## Table of Contents
 
-- [Introduction](#introduction)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -14,9 +13,6 @@ Seed project for hexagonal architecture with Node.js and TypeScript.
 - [Contributing](#contributing)
 - [License](#license)
 
-## Introduction
-
-This project is a seed project to demonstrate the implementation of hexagonal architecture (also known as ports and adapters) using Node.js, TypeScript, Express, and MongoDB. Hexagonal architecture aims to decouple the core business logic from the infrastructure, making the application more modular, testable, and maintainable.
 
 ## Features
 
@@ -24,17 +20,13 @@ This project is a seed project to demonstrate the implementation of hexagonal ar
 - **Node.js**: JavaScript runtime for server-side development.
 - **TypeScript**: Statically typed superset of JavaScript.
 - **Express**: Fast, unopinionated, minimalist web framework for Node.js.
-- **MongoDB**: NoSQL database for storing user data.
+- **MongoDB**: NoSQL database for storing book data.
 - **Swagger**: API documentation and testing.
 - **Jest**: JavaScript library for creating, running, and structuring tests.
 
 ## Installation
 
-1. **Clone the repository:**
 
-   ```bash
-   git clone https://github.com/your-username/hexagonal-architecture-project.git
-   cd hexagonal-architecture-project
 
 2. **Install dependencies:**
 
@@ -46,7 +38,7 @@ This project is a seed project to demonstrate the implementation of hexagonal ar
     You can use a local MongoDB instance or use Docker to run MongoDB. To run MongoDB using Docker,       use the following command:
 
 	```bash
-	docker run -d --name mongodb_hexagonal_project -p 27017:27017 -e MONGO_INITDB_DATABASE=test mongo
+	docker run -d --name mongodb_bookstore_project -p 27017:27017 -e MONGO_INITDB_DATABASE=bookstore mongo
 
 4. **Configure environment variables:**
 
@@ -54,7 +46,8 @@ This project is a seed project to demonstrate the implementation of hexagonal ar
 
     ```bash
     # .env file
-    MONGO_URI=mongodb://localhost:27017/test
+    MONGO_URI=mongodb://localhost:27017/bookstore
+    PORT=3000
 
 5. **Compile TypeScript:**
 
@@ -68,12 +61,17 @@ This project is a seed project to demonstrate the implementation of hexagonal ar
     ```bash
     npm run test
 
-2. **Start the server:**
+2. **Test the code with coverage:**
+
+    ```bash
+    npm run test:cov
+
+3. **Start the server:**
 
     ```bash
     npm run start
 
-3. **Access the API documentation:**
+4. **Access the API documentation:**
 Open your browser and navigate to http://localhost:3000/api-docs to view the Swagger UI for API documentation and testing.
 
 ## API Documentation
@@ -84,24 +82,30 @@ The API documentation is provided by Swagger. You can access it at http://localh
 src/
 ├── application/
 │   ├── services/
-│   │   └── userService.ts
-│   │   └── userService.test.ts
+│   │   └── bookService.ts
+│   │   └── bookService.test.ts
 ├── domain/
 │   ├── entities/
-│   │   └── user.ts
+│   │   └── book.ts
 │   ├── repositories/
-│   │   └── userRepository.ts
+│   │   └── bookRepository.ts
 ├── infrastructure/
+│   ├── config/
+│   │   └── swaggerConfig.ts
 │   ├── controllers/
-│   │   └── userController.ts
+│   │   └── bookController.ts
+│   │   └── bookController.test.ts
 │   ├── database/
 │   │   ├── mongoose.ts
-│   │   └── mongooseUserRepository.ts
+│   │   └── mongoose.test.ts
+│   │   └── mongooseBookRepository.ts
+│   │   └── mongooseBookRepository.test.ts
 │   ├── routes/
-│   │   └── userRoutes.ts
+│   │   └── bookRoutes.ts
 │   └── config/
 │       └── swaggerConfig.ts
 ├── app.ts
+├── app.test.ts
 └── server.ts
 ```
 

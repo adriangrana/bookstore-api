@@ -1,8 +1,8 @@
 import express from 'express';
 import { connectDB } from './infrastructure/database/mongoose';
-import { UserService } from './application/services/userService';
-import { MongooseUserRepository } from './infrastructure/database/mongooseUserRepository';
-import userRoutes from './infrastructure/routes/userRoutes';
+import { BookService } from './application/services/bookService';
+import { MongooseBookRepository } from './infrastructure/database/mongooseBookRepository';
+import bookRoutes from './infrastructure/routes/bookRoutes';
 import swaggerUi from 'swagger-ui-express';
 import swaggerSpec from './infrastructure/config/swaggerConfig';
 
@@ -10,17 +10,17 @@ const app = express();
 
 app.use(express.json());
 
-// Conectar a la base de datos
+// Connect to mongo database
 connectDB();
 
-// Configurar inyección de dependencias
-const userRepository = new MongooseUserRepository();
-const userService = new UserService(userRepository);
+// Configure dependency injection
+const bookRepository = new MongooseBookRepository();
+const bookService = new BookService(bookRepository);
 
-// Rutas de usuario
-app.use('/api', userRoutes(userService));
+// book routes
+app.use('/v1', bookRoutes(bookService));
 
-// Configurar Swagger
+// Swagger configuration
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 export default app;

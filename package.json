@@ -1,13 +1,13 @@
 {
-  "name": "hexagonal-architecture-project",
+  "name": "bookstore-api",
   "version": "1.0.0",
-  "description": "Seed project for hexagonal architecture with nodejs and typescript",
-  "main": "index.js",
+  "description": "API for bookstore application",
   "scripts": {
     "start": "ts-node src/server.ts",
     "build": "tsc",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage"
   },
   "keywords": [],
   "author": "Adrian Torres Graña",
@@ -28,6 +28,7 @@
     "@types/mongoose": "^5.11.97",
     "express": "^4.19.2",
     "mongoose": "^8.4.1",
+    "supertest": "^7.0.0",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
   }

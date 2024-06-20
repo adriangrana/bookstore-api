@@ -4,13 +4,13 @@ const options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'Hexagonal Architecture Project API',
+      title: 'Technical Assessment - Typescript',
       version: '1.0.0',
-      description: 'API documentation for the Hexagonal Architecture Project',
+      description: 'API documentation for the Technical Assessment - Typescript project.',
     },
     servers: [
       {
-        url: 'http://localhost:3000/api',
+        url: 'http://localhost:3000/v1',
       },
     ],
   },
