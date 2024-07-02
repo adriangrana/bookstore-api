@@ -1,8 +1,5 @@
 import request from 'supertest';
 import app from './app';
-import { connectDB } from './infrastructure/database/mongoose';
-import { BookService } from './application/services/bookService';
-import { MongooseBookRepository } from './infrastructure/database/mongooseBookRepository';
 import { Request, Response, NextFunction } from 'express';
 
 // Mock the necessary modules
